@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
 //DateTime today = DateTime.Today;
-public class Entry()
+public class JournalEntry()
 {
     /*Attributes:
         -_prompt
@@ -12,7 +12,7 @@ public class Entry()
     */
     public string _entry;
     public string _prompt;
-    public DateTime _dateTime;
+    public string _dateTime;
 
     /*Method:
         -Display():void
@@ -21,7 +21,7 @@ public class Entry()
     public void Display()
     {
         PromptGenerator prompt = new PromptGenerator();
-        string _prompt = prompt.DisplayRandom();
-        Console.WriteLine($">{_prompt}");
+        _prompt = prompt.DisplayRandom();
+        Console.WriteLine($"> {_prompt}");
     }
 }
