@@ -4,7 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Journal Project.");
         /* 
         1. New Journal Entry 
                 You show them a random prompt (probably from a list you created)
