@@ -1,7 +1,6 @@
 using System;
 using System.Runtime.CompilerServices;
 
-// THE PURPOSE OF THE IS PAGE: Keeps track of the book, chapter, and verse information
 public class Reference
 {
     private string _book;

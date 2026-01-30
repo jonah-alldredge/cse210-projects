@@ -1,5 +1,4 @@
 using System;
-// THE PURPOSE OF THIS PAGE: Keeps track of a single word and whether it is shown or hidden
 public class Word
 {
     private string _text;
@@ -7,11 +6,10 @@ public class Word
     public Word(string text)
     {
         _text = text;
-        
+
     }
     public void Hide()
     {
-        // This makes the word into "____"
         string hiddenWord = "";
         foreach (char c in _text)
         {
@@ -38,6 +36,6 @@ public class Word
     }
     public string GetDisplayText()
     {
-        return  " " + _text;
+        return " " + _text;
     }
 }

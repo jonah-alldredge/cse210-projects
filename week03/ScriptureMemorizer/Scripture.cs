@@ -18,33 +18,39 @@ public class Scripture
         foreach (string word in wordList)
         {
             Word getWord = new Word(word);
-             _words.Add(getWord);
+            _words.Add(getWord);
         }
         _reference = reference;
     }
     public void HideRandomWords(int numberToHide)
     {
-        // You could pick a random number and that is how many times it loops through getting rid of numbers
         Random random = new Random();
-        int counter = 0;
 
         int count = random.Next(1, 3);
-        
-        for (int i=1; i <= count; i++)
+
+        for (int i = 1; i <= count; i++)
         {
-            Word randomWord = _words[numberToHide];
-            if (!randomWord.IsHidden())
+            numberToHide = random.Next(0, _words.Count());
+            if (!_words[numberToHide].IsHidden())
             {
-                randomWord.Hide();
-                counter++;
+                _words[numberToHide].Hide();
             }
-            numberToHide = random.Next(1, _words.Count());
+            else
+            {
+                while (_words[numberToHide].IsHidden())
+                {
+                    numberToHide = random.Next(0, _words.Count());
+                    if (IsCompletelyHidden())
+                    {
+                        break;
+                    }
+                }
+                _words[numberToHide].Hide();
+            }
         }
     }
     public string GetDisplayText()
     {
-        while (IsCompletelyHidden())
-        {   
         string individualWord = "";
         foreach (Word word in _words)
         {
@@ -53,10 +59,21 @@ public class Scripture
         Random randomWord = new Random();
         HideRandomWords(randomWord.Next(0, _words.Count()));
         return _reference.GetDisplayText() + individualWord;
-        }
     }
     public bool IsCompletelyHidden()
     {
-        return true;
+        bool isHidden = false;
+        foreach (Word word in _words)
+        {
+            if (word.IsHidden())
+            {
+                isHidden = true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return isHidden;
     }
 }
