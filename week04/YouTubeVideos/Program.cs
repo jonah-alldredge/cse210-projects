@@ -38,14 +38,5 @@ class Program
         {
             video.GetWholeText();
         }
-
-
-
-        // Video video2 = new Video("dfds", "yourmom", 12);
-        // Comment comment2 = new Comment("Cassie", "she is big brain");
-        // Video video3 = new Video("dfds", "yourmom", 12);
-        // Comment comment3 = new Comment("Cassie", "she is big brain");
-        // Video video4 = new Video("dfds", "yourmom", 12);
-        // Comment comment4 = new Comment("Cassie", "she is big brain");
     }
 }
