@@ -13,11 +13,6 @@ namespace library_demo
             _title = "Unknown";
         }
 
-        public Book(string author, string title)
-        {
-            
-        }
-
         public void SetAuthor(string author)
         {
             _author = author;

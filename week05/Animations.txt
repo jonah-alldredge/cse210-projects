@@ -1,0 +1,48 @@
+Animations
+        for (int i = 5; i>0; i--)
+        {
+            Console.Write(i);
+            Thread.Sleep(1000); // Each 1000 is a second
+            Console.Write("\b \b"); // If you do 2 digits you had to do "\\b  \\b"
+
+        }
+        for (int i = 5; i > 0; i--)
+        {
+            Console.Write(".");
+            Thread.Sleep(1000);
+        }
+        List<string> animationStrings = new List<string>();
+        animationStrings.Add("|");
+        animationStrings.Add("/");
+        animationStrings.Add("-");
+        animationStrings.Add("\\");
+        animationStrings.Add("|");
+        animationStrings.Add("/");
+        animationStrings.Add("-");
+        animationStrings.Add("\\");
+
+        foreach (string s in animationStrings)
+        {
+            Console.Write(s);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
+
+        int i = 0;
+
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(10);
+
+        while (DateTime.Now < endTime)
+        {
+            string s = animationStrings[i];
+            // Console.Write(".");
+            // Thread.Sleep(1000);
+            i++;
+
+            if (i >= animationStrings.Count)
+            {
+                i = 0;
+            }
+        }
+        Console.WriteLine("Done");
