@@ -1,13 +1,7 @@
-
+// ADDED A WAY FOR THE QUESTIONS TO BE TAKEN OUT SO THEY WEREN'T REPEATED
 
 public class ReflectionActivity : Activity
 {
-    //Give prompt, wait a few seconds to let them think
-    //Give them reflection question relating to experience
-    //Display a spinner when paused? 
-    //Continue showing questions until # of seconds the user specified
-
-    //Attributes:
     private List<string> _prompts = new List<string>();
     private List<string> _questions = new List<string>();
 
@@ -31,6 +25,7 @@ public class ReflectionActivity : Activity
     public void Run()
     {
         DisplayStartingMessage();
+        Console.Clear();
         Console.Write("Get Ready...");
         ShowCountDown(3);
         DisplayPrompt();
@@ -53,15 +48,15 @@ public class ReflectionActivity : Activity
     }
     public void DisplayPrompt()
     {
-        Console.Clear();
         Console.WriteLine("\nConsider the following prompt:\n");
         string prompt = GetRandomPrompt();
         Console.WriteLine($" --- {prompt} --- ");
-        Console.WriteLine("When you have something in mind, press 'enter' to continue.");
+        Console.WriteLine("\nWhen you have something in mind, press 'enter' to continue.");
         Console.ReadLine();
         Console.WriteLine("Now ponder on each of the following questions as they relate to this experience.\n");
         Console.Write("You may begin in...");
         ShowCountDown(3);
+    
         DisplayQuestion();
     }
     public void DisplayQuestion()
@@ -75,16 +70,5 @@ public class ReflectionActivity : Activity
 
             ShowSpinner(3);
         }
-
     }
-
-    //Methods:
-    /*
-        - Run
-        - Get a random prompt
-        - Get random question abt prompt (cycle through to eliminate them when used for each activity?)
-        - Display the prompt
-        - Display questions abt prompt & get answers? (User input?)
-        - Private helper functions? 
-    */
 }

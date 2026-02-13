@@ -1,11 +1,5 @@
 public class ListingActivity : Activity
 {
-    //Random Prompt
-    //Give them a countdown to begin thinking
-    //Prompt them to list items, as many as possible
-    //Display # of items listed
-
-    //Attributes:
     private int _count;
     List<string> _prompts = new List<string>();
 
@@ -22,6 +16,7 @@ public class ListingActivity : Activity
     public void Run()
     {
         DisplayStartingMessage();
+        Console.Clear();
         Console.Write("Get Ready...");
         ShowCountDown(3);
         GetRandomPrompt();
@@ -32,8 +27,7 @@ public class ListingActivity : Activity
     {
         Random randomNumber = new Random();
         int randomPrompt = randomNumber.Next(0, _prompts.Count());
-        Console.Clear();
-        Console.WriteLine("List as many responses you can to the following prompt: ");
+        Console.WriteLine("\nList as many responses you can to the following prompt: ");
         Console.WriteLine($" ---{_prompts[randomPrompt]}--- ");
         Console.Write("You may begin in...");
         ShowCountDown(3);
@@ -54,10 +48,4 @@ public class ListingActivity : Activity
         Console.WriteLine($"You listed {_count} items!");
         return userInputList;
     }
-    //Methods:
-    /*
-        - Run
-        - Get random prompt
-        - Get list of responses from user 
-    */
 }

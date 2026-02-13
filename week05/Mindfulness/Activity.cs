@@ -1,32 +1,9 @@
 public class Activity
 {
-    //Start with a common message providing name of activity
-    //Description
-    //Asks for & sets duration (in seconds)
-    //Tells user to prepare to begin then pauses for several seconds
-
-    //Runs other activity
-
-    //Ends saying GOOD JOB
-    //Pause, tell them which activity was completed and for how long
-    //Pauses for several seconds
-
-    //**Whenever paused it will have an animation
-    //Normal interface
-    //Attributes:
     private string _nameOfActivity;
     private string _description;
     protected int _duration;
 
-    //Methods:
-    /*
-        - Display starting Message
-        - Display ending Message
-        - Pause w/ spinner for certain seconds
-        - Pause w/ countdown timer
-    */
-
-    //Constructor:
     public Activity(string nameOfActivity, string description, int duration)
     {
         _nameOfActivity = nameOfActivity;
@@ -45,10 +22,9 @@ public class Activity
     }
     public void DisplayEndingMessage()
     {
-        // Console.Clear();
         Console.WriteLine("\nWell Done!!");
         ShowSpinner(2);
-        Console.WriteLine($"\nYou have completed another {_duration} seconds in the {_nameOfActivity} Activity");
+        Console.WriteLine($"\nYou have completed {_duration} seconds in the {_nameOfActivity} Activity");
         ShowSpinner(2);
     }
     public void ShowSpinner(int seconds)
