@@ -10,19 +10,19 @@ public class Goal
         _description = description;
         _points = points;
     }
-    public void RecordEvent()
+    public virtual void RecordEvent()
     {
-
+        
     }
-    public bool IsComplete()
+    public virtual bool IsComplete()
     {
         return true;
     }
-    public string GetDetailString()
+    public virtual string GetDetailString()
     {
         return "";
     }
-    public string GetStringRepresentation()
+    public virtual string GetStringRepresentation()
     {
         return "";
     }

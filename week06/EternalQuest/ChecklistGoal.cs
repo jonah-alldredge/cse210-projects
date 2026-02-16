@@ -12,19 +12,19 @@ public class ChecklistGoal: Goal
         _bonus = bonus;
     }
 
-    public void RecordEvent()
+    public override void RecordEvent()
     {
 
     }
-    public bool IsComplete()
+    public override bool IsComplete()
     {
         return true;
     }
-    public string GetDetailString()
+    public override string GetDetailString()
     {
         return "";
     }
-    public string GetStringRepresentation()
+    public override string GetStringRepresentation()
     {
         return "";
     }

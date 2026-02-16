@@ -4,18 +4,23 @@ public class SimpleGoal:Goal
 
     public SimpleGoal(string shortName, string description, int points) : base(shortName, description, points)
     {
-    
+            
     }
-    public void RecordEvent()
+    public override void RecordEvent() // Marks the goal as completed - Calls IsCompleted? and then says it is complete?
+    {
+        
+    }
+    public override bool IsComplete() // Returns if the goal is complete or not
+    {
+        if (_isComplete)
+        {
+            return true;
+        }
+        return false;
+    }
+    public override string GetStringRepresentation()
     {
 
-    }
-    public bool IsComplete()
-    {
-        return true;
-    }
-    public string GetStringRepresentation()
-    {
         return "";
     }
 

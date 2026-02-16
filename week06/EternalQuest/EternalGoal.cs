@@ -4,16 +4,17 @@ public class EternalGoal: Goal
     {
         
     }
-    public void RecordEvent()
+    public override void RecordEvent()
+    {
+        
+    }
+    public override bool IsComplete()
+    {
+        return false;
+    }
+    public override string GetStringRepresentation()
     {
 
-    }
-    public bool IsComplete()
-    {
-        return true;
-    }
-    public string GetStringRepresentation()
-    {
         return "";
     }
 }
