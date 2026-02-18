@@ -5,27 +5,49 @@ public class ChecklistGoal: Goal
     private int _amountCompleted;
     private int _target;
     private int _bonus;
-    public ChecklistGoal(string shortName, string description, int points, int amountCompleted, int target, int bonus): base(shortName, description, points)
+    private int _points;
+    private bool _isComplete;
+    public ChecklistGoal(string shortName, string description, int points, int target, int bonus, int amountCompleted): base(shortName, description, points)
     {
-        _amountCompleted = amountCompleted;
         _target = target;
         _bonus = bonus;
+        _points = points;
+        _amountCompleted = amountCompleted;
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-
+        _amountCompleted++;
+        if (_amountCompleted == _target)
+        {
+            _points = _bonus + _points;
+            _isComplete = true;
+            IsComplete();
+        }
+        else
+        {
+            return _points;
+        }
+        return _points;
     }
     public override bool IsComplete()
     {
-        return true;
-    }
-    public override string GetDetailString()
-    {
-        return "";
+        if (_isComplete)
+        {
+            return true;
+        }
+        return false;
     }
     public override string GetStringRepresentation()
     {
-        return "";
+
+        string getHalfString = base.GetStringRepresentation();
+        string getWholeString = $"{getHalfString} - Currently Completed: {_amountCompleted}/{_target}";
+        return getWholeString;
+    }
+    public override string SaveStringName()
+    {
+        string saveString = $"ChecklistGoal:{base.SaveStringName()}~{_bonus}~{_target}~{_amountCompleted}";
+        return saveString;
     }
 }

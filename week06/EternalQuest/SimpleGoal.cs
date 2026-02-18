@@ -1,14 +1,18 @@
 public class SimpleGoal:Goal
 {
     private bool _isComplete;
+    private int _points;
 
-    public SimpleGoal(string shortName, string description, int points) : base(shortName, description, points)
+    public SimpleGoal(string shortName, string description, int points, bool isComplete) : base(shortName, description, points)
     {
-            
+        _points = points;
+        _isComplete = isComplete;
     }
-    public override void RecordEvent() // Marks the goal as completed - Calls IsCompleted? and then says it is complete?
+    public override int RecordEvent() // Marks the goal as completed - Calls IsCompleted? and then says it is complete?
     {
-        
+        _isComplete = true;
+        IsComplete();
+        return _points;
     }
     public override bool IsComplete() // Returns if the goal is complete or not
     {
@@ -18,10 +22,19 @@ public class SimpleGoal:Goal
         }
         return false;
     }
-    public override string GetStringRepresentation()
+    public override string SaveStringName()
     {
-
-        return "";
+        string goalComplete;
+        if (IsComplete())
+        {
+            goalComplete = "True";
+        }
+        else
+        {
+            goalComplete = "False";
+        }
+        string saveString = $"SimpleGoal:{base.SaveStringName()}~{goalComplete}";
+        return saveString;
     }
 
 }
